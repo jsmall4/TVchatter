@@ -4,5 +4,5 @@ const handlebars = require("express-handlebars");
 const helpers = require("./utils/helpers");
 const app = express();
 const sequelize = require("./config/connection");
-
 const PORT = process.env.PORT || 3001;
+
