@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS tvreview_db;
+CREATE DATABASE tvreview_db;
