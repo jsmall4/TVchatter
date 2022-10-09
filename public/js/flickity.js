@@ -28,11 +28,12 @@ var flky = new Flickity( elem, {
   // so no excess scroll at beginning or end
   // has no effect if wrapAround is enabled
 
-  draggable: '>1',
+  draggable: false, 
+  // '>1',
   // enables dragging & flicking
   // if at least 2 cells
 
-  dragThreshold: 3,
+  // dragThreshold: 3,
   // number of pixels a user must scroll horizontally to start dragging
   // increase to allow more room for vertical scroll for touch devices
 
