@@ -1,0 +1,113 @@
+#title {
+    height: 200px;
+    background: rgb(70, 185, 210);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+    height: 100px;
+    color:black;
+    }
+
+    #subtitle {
+        height: 200px;
+        background: #d7f3f6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Courier New', Courier, monospace;
+        height: 35px;
+        font-size: 30px;
+        }
+
+   #inputShow {
+    margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 600px;
+  margin-left: 600px;
+   }
+
+   #searchResult {
+       margin-top: 50px;
+    height: 300px;
+    color:  #d7f3f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace;
+    height: 30px;
+    font-size: 12px;
+    }
+
+
+    #commentInputBox {
+        height: 200px;
+       
+        display: flex;
+        align-content: flex-start;
+        justify-content: left;
+        font-family: monospace;
+        height: 38px;
+        font-size: 20px;
+        margin-left: 30px;
+        }
+
+    #displayComment1Box {
+            height: 200px;
+           
+            display: flex;
+                    align-content: center;
+            justify-content: left;
+            font-family: monospace;
+            height: 38px;
+            font-size: 20px;
+            margin-left: 20px;
+            }
+    #displayComment2Box {
+                height: 200px;
+                
+                display: flex;
+                    align-content: center;
+                justify-content: left;
+                font-family: monospace;
+                height: 38px;
+                font-size: 20px;
+                margin-left: 20px;
+                }
+    #displayComment3Box {
+                    height: 200px;
+                    
+                    display: flex;
+                    align-content: center;
+                    justify-content: left;
+                    font-family: monospace;
+                    height: 38px;
+                    font-size: 20px;
+                    margin-left: 20px;
+                    }
+    #commentsSection {
+        background-color: cornsilk;
+    }
+
+    #img1 {
+        
+        display: block;
+    }
+
+    #img2 {
+        display: block;
+    }
+
+    #img3 {
+        display: block;
+    }
+
+    .cards {
+        display: flex;
+    }
+
+    .card {
+        margin: 30px;
+    }
+
+    
