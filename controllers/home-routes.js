@@ -2,7 +2,24 @@ const router = require("express").Router();
 const { TVshow, User, Comments } = require("../models");
 const withAuth = require("../utils/auth");
 
-//
+//renderhome page route.
+
+router.get("/", (req, res) => {
+  res.render("homepage");
+});
+
+//render signup page
+
+router.get("/signup", (req, res) => {
+  res.render("signup");
+});
+
+//render dashboard page
+
+router.get("/dashboard", (req, res) => {
+  res.render("dashboard");
+});
+
 router.get("/", (req, res) => {
   TVshow.findAll({
     attributes: ["poster"],
