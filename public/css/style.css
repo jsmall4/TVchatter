@@ -1,0 +1,64 @@
+.title {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: larger;
+    text-align: center;
+    background-color: #D7F3F6;;
+    color: black;
+}
+.topnav {
+    background-color: #D7F3F6;;
+    overflow: hidden;
+}
+.topnav a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+} 
+
+
+/* external css: flickity.css */
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  body { font-family: sans-serif; }
+  
+  .gallery {
+    background: #EEE;
+  }
+  
+  .gallery-cell {
+    width: 300px;
+    height: 400px;
+    margin-right: 5px;
+    background: white;
+    counter-increment: gallery-cell;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  
+  }
+  
+  /* cell number */
+  /* .gallery-cell:before {
+    display: block;
+    text-align: center;
+    content: counter(gallery-cell);
+    line-height: 200px;
+    font-size: 80px;
+    color: white;
+  } */
+  
+  .gallery-cell img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    align-items: center;
+  
+  }
+  
