@@ -9,7 +9,6 @@ TVshow.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
     },
     tvshow_name: {
       type: DataTypes.STRING,
