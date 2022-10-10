@@ -26,7 +26,20 @@ const GetTrending = () => {
     .catch((err) => console.log("Unexpected error. Please try again"));
 };
 
-document.getElementById("img-c1").addEventListener("click", function(){ console.log(document.getElementById("img-c1").dataset.img)}); 
+document.getElementById("img-c1").addEventListener("click", function(){ 
+  console.log(document.getElementById("img-c1").dataset.img);
+  window.location.href = `/${document.getElementById("img-c1").dataset.img}`
+console.log(window.location.href.split('/'));
+fetch (` https://api.themoviedb.org/3/find/{external_id}?${api}&language=en-US&external_source=imdb_id`)
+
+
+
+}); 
+
+
+
+
+
 
 
 GetTrending();
