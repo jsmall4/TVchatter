@@ -5,8 +5,15 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>TVchatter📺</title>
+        <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+        <link rel="stylesheet" href="/css/style.css" media="screen">
+        
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-        <link rel="stylesheet" href="./public/css/style.css" media="screen">
         <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 
        
@@ -17,7 +24,7 @@
         </div>
         
         <div class="topnav">
-          <a class="active" href="http://localhost:3001/">Home</a>
+          <a class="active" href="http://localhost:3001">Home</a>
           <a href="http://localhost:3001/login">Log in</a>
           <a href="http://localhost:3001/logout">Log Out</a>
           <a href="http://localhost:3001/dashboard">Dashboard</a>
@@ -30,9 +37,11 @@
             </div>
             <div class="results"></div>
         </div>
- {{{body}}}
-        <footer>
-        </footer>
+        <main>
+          {{{body}}}
+          </main>        
+          <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+          integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
           <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
       integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -43,12 +52,9 @@
       integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"
     ></script>
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-          integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-        <script src="./public/js/flickity.js"></script>
-        <script src="./public/js/scipt.js"></script>
+        
       </body>
       </html>
 
