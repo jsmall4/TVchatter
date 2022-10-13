@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { TVshow, User, Comments } = require("../models");
+// const withAuth = require("../utils/auth");
 
 //renderhome page route.
 
@@ -39,15 +40,6 @@ router.get("/", (req, res) => {
     });
 });
 
-router.get("/login", (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect("/");
-    return;
-  }
-
-  res.render("login");
-});
-
 router.get("/tvshow/:id", (req, res) => {
   TVshow.findOne({
     where: {
@@ -83,6 +75,15 @@ router.get("/tvshow/:id", (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+});
+
+router.get("/login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+
+  res.render("login");
 });
 
 module.exports = router;
