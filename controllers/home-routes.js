@@ -48,41 +48,48 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-router.get("/tvshow/:id", (req, res) => {
-  TVshow.findOne({
-    where: {
-      id: req.params.id,
-    },
-    include: [
-      {
-        model: User,
-        attributes: ["username"],
-      },
-      {
-        model: Comment,
-        attributes: ["comment_text", "user_id", "tvshow_id", "createdAt"],
-        include: [
-          {
-            model: User,
-            attributes: ["username"],
-          },
-        ],
-      },
-    ],
-  })
-    .then((tvreview_db) => {
-      if (!tvreview_db) {
-        res.status(404).json({ message: "No show found with this id" });
-        return;
-      }
+// router.get("/tvshow/:id", (req, res) => {
+//   TVshow.findOne({
+//     where: {
+//       id: req.params.id,
+//     },
+//     include: [
+//       {
+//         model: User,
+//         attributes: ["username"],
+//       },
+//       {
+//         model: Comment,
+//         attributes: ["comment_text", "user_id", "tvshow_id", "createdAt"],
+//         include: [
+//           {
+//             model: User,
+//             attributes: ["username"],
+//           },
+//         ],
+//       },
+//     ],
+//   })
+//     .then((tvreview_db) => {
+//       if (!tvreview_db) {
+//         res.status(404).json({ message: "No show found with this id" });
+//         return;
+//       }
 
-      const blog = tvreview_db.get({ plain: true });
-      res.render("TVshow", { tvshow, loggedIn: req.session.loggedIn });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+//       const blog = tvreview_db.get({ plain: true });
+//       res.render("TVshow", { tvshow, loggedIn: req.session.loggedIn });
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
+
+router.get("/tvshow/:id", (req, res) => {
+  console.log("HIIIII TV SHOWWWW");
+  res.render("tvshows");
 });
+
+
 
 module.exports = router;

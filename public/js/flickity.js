@@ -85,8 +85,8 @@ var flky = new Flickity( elem, {
 
 });
 
-var $carousel = $('movie-gallery').flickity({
-  imagesLoaded: true,
-  percentPosition: false,
-});
+// var $carousel = $('movie-gallery').flickity({
+//   imagesLoaded: true,
+//   percentPosition: false,
+// });
 
