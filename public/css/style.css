@@ -74,6 +74,10 @@
   }
 
   .sign-up {
-    margin-left: 40px;
+    
+    margin-left: 400px;
+    margin-top: 30px;
+    padding: 10px;
     font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
   }
