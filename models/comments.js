@@ -10,6 +10,10 @@ Comments.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    tvshow_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
     user_comment: {
       type: DataTypes.STRING,
       allowNull: false,
