@@ -1,11 +1,12 @@
 {{!--email address--}}
 <h4 class="sign-up">Sign Up: </h4>
+<form class="signup-form sign-upBtn" id="signUpDone">
  <div class="mb-3 sign-up">
   <label for="emailAddressSignup" class="form-label">Email address</label>
   <input
     type="email"
     class="form-control"
-    id="emailAddressSignup"
+    id="emailSignup"
     placeholder="name@example.com"
   />
 </div>
@@ -15,7 +16,7 @@
   <input
     type="text"
     class="form-control"
-    id="usernameSignUp"
+    id="usernameSignup"
     placeholder="username"
   />
 </div>
@@ -30,9 +31,8 @@
   />
 </div>
 {{!--submit button--}}
-<form class="signup-form sign-upBtn">
 <div class="form-group" id="signUpBtn">
-    <button class="btn btn-primary" type="submit">Submit</button>
+    <button class="btn btn-primary" type="submit" id="submitSignup">Submit</button>
 </div>
 </form>
 

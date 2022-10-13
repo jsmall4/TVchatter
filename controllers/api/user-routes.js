@@ -1,32 +1,36 @@
 const router = require("express").Router();
-const { User, TVshow, Comment } = require("../../models");
+const { User, TVshow, Comments } = require("../../models");
 require("dotenv").config();
 
+// router.get("/", async (req, res) => {
+//   try {
+//     const userData = await User.findAll();
+//     res.status(200).json(userData);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
 // get all users
+
 router.get("/", (req, res) => {
   User.findAll({
     attributes: { exclude: ["password"] },
     include: [
       {
-        model: Comment,
-        attributes: [
-          "id",
-          "comment_text",
-          "tvshow_id",
-          "user_id",
-          "created_at",
-        ],
-        include: {
-          model: TVshow,
-          attributes: ["title", "poster"],
-        },
+        model: Comments,
+        attributes: ["id", "user_comment"],
+        // include: {
+        //   model: TVshow,
+        //   attributes: ["tvshow_name"],
+        // },
       },
     ],
   })
     .then((dbUserData) => res.json(dbUserData))
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(404).json(err);
     });
 });
 
