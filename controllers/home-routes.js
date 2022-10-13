@@ -110,7 +110,19 @@ router.post("/tvshow/:tvshowId", async (req, res) => {
   
 });
 
-
+router.post("/signup", async (req, res) => {
+  try {
+    const user = await User.create(req.body);
+    req.session.save(() => {
+      req.session.user_id = user.id;
+      req.session.logged_in = true;
+      res.status(200).json(user);
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(400).json(err);
+  }
+});
 
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
