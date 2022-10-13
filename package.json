@@ -11,7 +11,8 @@
     "sequelize": "^5.21.2"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node seeds/user-seeds.js"
   },
   "name": "tvchatter",
   "description": "",
