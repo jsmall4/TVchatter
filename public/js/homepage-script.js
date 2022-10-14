@@ -31,5 +31,18 @@ const GetTrending = () => {
     .catch((err) => console.log("Unexpected error. Please try again"));
 };
 
+// Search Function
+const searchTVshows = async () => {
+  const searchbar = document.getElementById("prompt").value;
+  await fetch("https://api.themoviedb.org/3/search/tv?api_key=a5236f2eef292a6c9f917d6db44e1323&language=en-US&page=1&query=" + searchbar + "&include_adult=false")
+  .then((response) => response.json())
+  .then((data) => {
+  let tvshowID = data.results[0].id
+  window.location.href = `/tvshow/${tvshowID}`;
+  })
+  .catch((err) => console.log("Unexpected error. Please try again"));
+  };
+
+
 // Initialising the functions
 GetTrending();
