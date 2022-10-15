@@ -50,9 +50,9 @@
   {{#each comments as |comment|}}
   <div class="card commentCard" style="width: 50rem;">
   <div class="card-body">
-    <h5 class="card-title post-titleCard">Post Title{{post.title}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Username{{post.title}}</h6>
-    <p class="card-text">Comment- i.e Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h5 class="card-title post-titleCard">Post Title{{comment.id}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Username{{comment.user_comment}}</h6>
+    <p class="card-text">Comment{{comment.user_comment}}- i.e Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" class="card-link">Reply</a>
   </div>
 </div>

@@ -3,42 +3,39 @@ const { TVshow, User, Comments } = require("../models");
 // const withAuth = require("../utils/auth");
 
 //renderhome page route.
-
 router.get("/", (req, res) => {
   console.log("HIIIII");
   res.render("homepage");
 });
 
 //render signup page
-
 router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
 //render dashboard page
-
 router.get("/dashboard", (req, res) => {
   res.render("dashboard");
 });
 
-router.get("/", (req, res) => {
-  TVshow.findAll({
-    attributes: ["poster"],
-  })
-    .then((tvreview_db) => {
-      let movies = tvreview_db.map((tvshow) => tvshow.get({ plain: true }));
-      const shuffled = tvshow.sort(() => 0.5 - Math.random());
-      TVshow = shuffled.slice(0, 9);
-      res.render("homepage", {
-        tvshow,
-        loggedIn: req.session.loggedIn,
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
+// router.get("/", (req, res) => {
+//   TVshow.findAll({
+//     attributes: ["poster"],
+//   })
+//     .then((tvreview_db) => {
+//       let movies = tvreview_db.map((tvshow) => tvshow.get({ plain: true }));
+//       const shuffled = tvshow.sort(() => 0.5 - Math.random());
+//       TVshow = shuffled.slice(0, 9);
+//       res.render("homepage", {
+//         tvshow,
+//         loggedIn: req.session.loggedIn,
+//       });
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
@@ -88,7 +85,7 @@ router.get("/login", (req, res) => {
 
 router.get("/tvshow/:tvshowId", async (req, res) => {
   const tvshowId = req.params.tvshowId;
-  const comments = await Comments.findAll({where:{tvshow_Id: tvshowId}});
+  const comments = await Comments.findAll({where:{tvshow_id: tvshowId}});
   console.log(comments);
   res.render("tvshows", {comments: comments || []});
 });
