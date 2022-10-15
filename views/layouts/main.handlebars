@@ -22,12 +22,19 @@
   <div class="topnav">
     <a class="active" href="http://localhost:3001">Home</a>
     <a href="http://localhost:3001/login">Log in</a>
-    <a href="http://localhost:3001/logout">Log Out</a>
+    <button id="logout" class="logOutBtn">Log Out</button>
     <a href="http://localhost:3001/dashboard">Dashboard</a>
     <a href="http://localhost:3001/signup">Sign Up</a>
   </div>
     <main>
       {{{body}}}
+      <footer>
+  <div class="card-footer text-muted bottom-footer">
+    TVChatter Ltd @2022
+
+  </div>
+</div>
+</footer>
     </main>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
       integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
@@ -38,6 +45,7 @@
       integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+<script src="/js/logout.js"></script>
 </body>
 
 </html>

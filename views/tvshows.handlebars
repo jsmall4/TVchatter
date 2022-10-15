@@ -28,8 +28,34 @@
 
   <input type="text">
 
+{{!--this is for a new post, title and main post--}}
+  <form>
+ <div class="form-group postInputForm">
+    <label for="formGroupExampleInput">Post Title</label>
+    <input type="text" class="form-control postInputForm" id="formGroupExampleInput" placeholder="Example input">
+  </div>
+  <div class="form-group postInputForm">
+    <label for="formGroupExampleInput2">Main Post</label>
+    <input type="text" class="form-control postInputForm" id="formGroupExampleInput2" placeholder="Another input">
+  </div>
+<div class="form-group row">
+    <div class="col-sm-9">
+      <button type="submit" class="btn btn-primary postbutton">POST</button>
+    </div>
+  </div>
+</form>
+
+  {{!--This shows previous posts/or comments? made by other users--}}
+
   {{#each comments as |comment|}}
-  
+  <div class="card commentCard" style="width: 50rem;">
+  <div class="card-body">
+    <h5 class="card-title post-titleCard">Post Title{{post.title}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Username{{post.title}}</h6>
+    <p class="card-text">Comment- i.e Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="card-link">Reply</a>
+  </div>
+</div>
   {{/each}}
 
   <script src="/js/tvshows-script.js"></script>

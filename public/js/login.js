@@ -1,11 +1,11 @@
-const myModal = document.getElementById("myModal");
+// const myModal = document.getElementById("myModal");
 const myInput = document.getElementById("myInput");
 
 async function loginFormHandler(event) {
   event.preventDefault();
 
-  const password = document.querySelector("#password-login").value.trim();
-  const username = document.querySelector("#username-login").value.trim();
+  const password = document.querySelector("#passwordLogin").value.trim();
+  const username = document.querySelector("#usernameLogin").value.trim();
 
   if (username && password) {
     const response = await fetch("/api/users/login", {
@@ -17,7 +17,10 @@ async function loginFormHandler(event) {
       headers: { "Content-Type": "application/json" },
     });
 
+    console.log(response);
+
     if (response.ok) {
+      console.log("inside response ok");
       document.location.replace("/dashboard/");
     } else {
       alert(response.statusText);
@@ -25,42 +28,10 @@ async function loginFormHandler(event) {
   }
 }
 
-async function signupFormHandler(event) {
-  event.preventDefault();
-
-  const username = document.querySelector("#username-signup").value.trim();
-  const email = document.querySelector("#email-signup").value.trim();
-  const password = document.querySelector("#password-signup").value.trim();
-
-  if (username && email && password) {
-    const response = await fetch("/api/users", {
-      method: "POST",
-      body: JSON.stringify({
-        username,
-        email,
-        password,
-      }),
-      headers: { "Content-Type": "application/json" },
-    });
-
-    if (response.ok) {
-      document.location.replace("/dashboard");
-    } else {
-      response.json().then((result) => {
-        alert(result.errors[0].message);
-      });
-    }
-  }
-}
-
 document
-  .querySelector(".login-form")
-  .addEventListener("submit", loginFormHandler);
+  .querySelector("#loginInBtn")
+  .addEventListener("click", loginFormHandler);
 
-document
-  .querySelector(".signup-form")
-  .addEventListener("submit", signupFormHandler);
-
-myModal.addEventListener("shown.bs.modal", function () {
-  myInput.focus();
-});
+// myModal.addEventListener("shown.bs.modal", function () {
+//   myInput.focus();
+// });
