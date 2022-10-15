@@ -31,7 +31,7 @@ Comments.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "tvshow",
+    modelName: "Comments",
   }
 );
 module.exports = Comments;

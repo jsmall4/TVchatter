@@ -1,5 +1,15 @@
 <!-- Flickity HTML init -->
 {{!--carousel--}}
+  <div class="ui fluid category search">
+    <div class="ui icon input">
+      <form id="searchTV">
+        <div style="display: none;">
+          <input type="submit" name="prevent-enter-submit" onclick="return false;">
+        </div>
+        <input id="prompt" type="text" placeholder="tv shows..." />
+        <i class="search icon" id="search-icon" onclick="searchTVshows()"></i>
+      </form>
+    </div>
 <div class="movie-gallery">
   <div class="gallery-cell" id="cell-1">
     <img id="img-c1"
@@ -50,13 +60,6 @@
          />
   </div>
 </div>
-<div class="ui fluid category search">
-            <div class="ui icon input">
-              <input class="prompt" type="text" placeholder="TV Show...">
-              <i class="search icon"></i>
-            </div>
-            <div class="results"></div>
-        </div>
 
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 <script src="/js/flickity.js"></script>

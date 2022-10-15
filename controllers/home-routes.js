@@ -88,7 +88,7 @@ router.get("/login", (req, res) => {
 
 router.get("/tvshow/:tvshowId", async (req, res) => {
   const tvshowId = req.params.tvshowId;
-  const comments = await Comments.findAll({where:{tvshowId: tvshowId}});
+  const comments = await Comments.findAll({where:{tvshow_Id: tvshowId}});
   console.log(comments);
   res.render("tvshows", {comments: comments || []});
 });
