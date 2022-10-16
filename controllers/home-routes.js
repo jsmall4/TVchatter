@@ -46,16 +46,6 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-// attempt to get redirect to log in after sign up
-
-// router.get("/signup", (req, res) => {
-//   if (req.session.loggedIn) {
-//     res.redirect("/");
-//     return;
-//   }
-
-  res.render("login");
-});
 // router.get("/tvshow/:id", (req, res) => {
 //   TVshow.findOne({
 //     where: {
