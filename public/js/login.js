@@ -28,9 +28,7 @@ async function loginFormHandler(event) {
   }
 }
 
-document
-  .querySelector("#loginInBtn")
-  .addEventListener("click", loginFormHandler);
+document.querySelector("#logInBtn").addEventListener("click", loginFormHandler);
 
 // myModal.addEventListener("shown.bs.modal", function () {
 //   myInput.focus();
