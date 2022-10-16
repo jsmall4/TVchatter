@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, TVshow, Comments } = require("../../models");
+const { User, Comments } = require("../../models");
 require("dotenv").config();
 
 // router.get("/", async (req, res) => {
@@ -19,11 +19,7 @@ router.get("/", (req, res) => {
     include: [
       {
         model: Comments,
-        attributes: ["id", "user_comment"],
-        // include: {
-        //   model: TVshow,
-        //   attributes: ["tvshow_name"],
-        // },
+        attributes: ["id", "user_comment", "tvshow_id"],
       },
     ],
   })
@@ -42,12 +38,8 @@ router.get("/:id", (req, res) => {
     },
     include: [
       {
-        model: Comment,
-        attributes: ["id", "comment_text", "created_at"],
-        include: {
-          model: TVshow,
-          attributes: ["title"],
-        },
+        model: Comments,
+        attributes: ["id", "user_comment", "tvshow_id"],
       },
     ],
   })
@@ -163,6 +155,5 @@ router.delete("/:id", (req, res) => {
     });
 });
 
-router.get("/id");
 
 module.exports = router;

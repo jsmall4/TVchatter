@@ -75,6 +75,8 @@
 /*dashboard page css */
 
 .commentCard {
+  position: relative;
+  display: inline-block;
   margin: 22px;
   background-color: rgb(255, 243, 219);
   font-family: sans-serif;

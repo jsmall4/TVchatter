@@ -1,11 +1,12 @@
 {
   "dependencies": {
-    "bcrypt": "^4.0.1",
+    "@handlebars/allow-prototype-access": "^1.0.5",
+    "bcrypt": "^5.1.0",
     "bootstrap": "^5.2.2",
     "connect-session-sequelize": "^6.1.1",
     "dotenv": "^16.0.3",
     "express": "^4.18.1",
-    "express-handlebars": "^3.1.0",
+    "express-handlebars": "^6.0.6",
     "express-session": "^1.17.0",
     "mysql2": "^2.0.1",
     "nodemon": "^2.0.20",
@@ -13,7 +14,7 @@
   },
   "scripts": {
     "start": "nodemon server.js",
-    "seed": "node seeds/user-seeds.js"
+    "seed": "node seeds/seed.js"
   },
   "name": "tvchatter",
   "description": "",
@@ -29,5 +30,8 @@
   "bugs": {
     "url": "https://github.com/jsmall4/TVchatter/issues"
   },
-  "homepage": "https://github.com/jsmall4/TVchatter#readme"
+  "homepage": "https://github.com/jsmall4/TVchatter#readme",
+  "devDependencies": {
+    "handlebars": "^4.5.0"
+  }
 }
