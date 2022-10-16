@@ -39,13 +39,23 @@ router.get("/dashboard", (req, res) => {
 
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect("/");
+    res.redirect("/dashboard");
     return;
   }
 
   res.render("login");
 });
 
+// attempt to get redirect to log in after sign up
+
+// router.get("/signup", (req, res) => {
+//   if (req.session.loggedIn) {
+//     res.redirect("/");
+//     return;
+//   }
+
+  res.render("login");
+});
 // router.get("/tvshow/:id", (req, res) => {
 //   TVshow.findOne({
 //     where: {
@@ -85,15 +95,15 @@ router.get("/login", (req, res) => {
 
 router.get("/tvshow/:tvshowId", async (req, res) => {
   const tvshowId = req.params.tvshowId;
-  const comments = await Comments.findAll({where:{tvshow_id: tvshowId}});
+  const comments = await Comments.findAll({ where: { tvshow_id: tvshowId } });
   console.log(comments);
-  res.render("tvshows", {comments: comments || []});
+  res.render("tvshows", { comments: comments || [] });
 });
 
 router.post("/tvshow/:tvshowId", async (req, res) => {
   const user_id = req.session.user_id;
   const tvshowId = req.params.tvshowId;
-  const content = req.body.content;//{content: "comment here"}
+  const content = req.body.content; //{content: "comment here"}
   try {
     const comments = await Comments.create({
       tvshowId: tvshowId,
@@ -102,9 +112,8 @@ router.post("/tvshow/:tvshowId", async (req, res) => {
     });
     res.status(200).json(comments);
   } catch (error) {
-    res.status(400).json({error: error});
+    res.status(400).json({ error: error });
   }
-  
 });
 
 router.post("/signup", async (req, res) => {
