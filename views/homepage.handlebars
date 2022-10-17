@@ -1,15 +1,18 @@
 <!-- Flickity HTML init -->
 {{!--carousel--}}
-  <div class="ui fluid category search">
+  <div class="ui fluid category search" id="searchBar">
     <div class="ui icon input">
       <form id="searchTV">
         <div style="display: none;">
           <input type="submit" name="prevent-enter-submit" onclick="return false;">
         </div>
-        <input id="prompt" type="text" placeholder="tv shows..." />
+        <input id="prompt" type="text" placeholder="search for tv shows..." />
         <i class="search icon" id="search-icon" onclick="searchTVshows()"></i>
       </form>
     </div>
+    </div>
+
+      <h2>Trending TV Shows...</h2>
 <div class="movie-gallery">
   <div class="gallery-cell" id="cell-1">
     <img id="img-c1"
@@ -61,10 +64,10 @@
   </div>
 </div>
 <footer>
-<div class="cardfooter card text-center">
+<div class="cardfooter card text-center" id="footer">
   <div class="card-header footer-section">
   </div>
-  <div class="card-body" id="footer">
+  <div class="card-body" >
     <h5 class="card-title footer-title">TVChatter</h5>
     <p class="card-text footer-paragraph">A place where your opinion matters</p>
     <a href="http://localhost:3001/signup" class="btn btn-primary">Sign Up</a>

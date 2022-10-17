@@ -1,34 +1,23 @@
 const router = require("express").Router();
-const { Movie, User, Comment } = require("../models");
+const { User, Comments } = require("../models");
 const withAuth = require("../utils/auth");
 
-// get all comments for dashboard
+//render dashboard page
 router.get("/", withAuth, (req, res) => {
-  Comment.findAll({
+  Comments.findAll({
     where: {
       user_id: req.session.user_id,
     },
     attributes: [
       "id",
-      "comment_text",
+      "user_comment",
       "tvshow_id",
-      "tvshow_rating",
-      "created_at",
     ],
-    include: [
-      {
-        model: TVshow,
-        attributes: ["id", "title", "poster"],
-      },
-      {
-        model: User,
-        attributes: ["username"],
-      },
-    ],
-    order: [["createdAt", "DESC"]],
+   
   })
     .then((dbCommentData) => {
       const comments = dbCommentData.map((post) => post.get({ plain: true }));
+      console.log(comments)
       res.render("dashboard", { comments, loggedIn: true });
     })
     .catch((err) => {
@@ -38,24 +27,13 @@ router.get("/", withAuth, (req, res) => {
 });
 
 router.get("/edit/:id", withAuth, (req, res) => {
-  Comment.findByPk(req.params.id, {
+  Comments.findByPk(req.params.id, {
     attributes: [
       "id",
-      "comment_text",
+      "user_comment",
       "tvshow_id",
-      "tvshow_rating",
-      "created_at",
     ],
-    include: [
-      {
-        model: TVshow,
-        attributes: ["id", "title", "poster"],
-      },
-      {
-        model: User,
-        attributes: ["username"],
-      },
-    ],
+    
   })
     .then((dbCommentData) => {
       if (dbCommentData) {
