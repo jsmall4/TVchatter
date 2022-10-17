@@ -5,8 +5,8 @@ const exphbs = require("express-handlebars");
 const routes = require("./controllers");
 // const helpers = require("./utils/helpers");
 
-// const Handlebars = require('handlebars')
-// const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access');
+const Handlebars = require('handlebars')
+const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access');
 
 const sequelize = require("./config/connection");
 // const { ConnectionError } = require("sequelize");

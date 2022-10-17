@@ -12,6 +12,30 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
+//render dashboard page
+router.get("/dashboard", withAuth, (req, res) => {
+  Comments.findAll({
+    where: {
+      user_id: req.session.user_id,
+    },
+    attributes: [
+      "id",
+      "user_comment",
+      "tvshow_id",
+    ],
+   
+  })
+    .then((dbCommentData) => {
+      const comments = dbCommentData.map((post) => post.get({ plain: true }));
+      res.render("dashboard", { comments, loggedIn: true });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/dashboard");
@@ -35,6 +59,7 @@ router.get("/tvshow/:tvshowId", async (req, res) => {
       },
     ], 
   });
+  console.log(comments);
   res.render("tvshows", {comments: comments || []});
 });
 
@@ -44,7 +69,7 @@ router.post("/tvshow/:tvshowId", async (req, res) => {
   const content = req.body.content;
   try {
     const comments = await Comments.create({
-      tvshow_Id: tvshowId,
+      tvshow_id: tvshowId,
       user_comment: content,
       user_id: user_id,
     });

@@ -22,7 +22,6 @@ const GetShowInfo = () => {
   fetch(searchTV + tvshowID + "?" + api + "&" + region)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       title.innerHTML = data.name;
       date.innerHTML = "Last Air Date: " + data.last_air_date;
       desc.innerHTML = data.overview;
@@ -53,9 +52,10 @@ window.location.href = `/tvshow/${tvshowID}`;
 const postComment = async function (event) {
 event.preventDefault();
 const content = document.getElementById("content").value
-
+console.log("here?")
 if (content) {
-  await fetch(`/tvshow/${tvshowID}`, {
+  await fetch(`/tvshow/${tvshowID}`, 
+  {
     method: 'POST',
     body: JSON.stringify({
       content
@@ -65,9 +65,8 @@ if (content) {
     }
   });
 
-  // document.location.reload();
+  document.location.reload();
 
-  console.log(content)
 }
 }; 
 
