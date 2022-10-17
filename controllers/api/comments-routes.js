@@ -1,9 +1,9 @@
 const router = require("express").Router();
-const { Comment } = require("../../models");
-// const withAuth = require("../../utils/auth");
+const { Comments, User } = require("../../models");
+const withAuth = require("../../utils/auth");
 
 router.get("/", (req, res) => {
-  Comment.findAll()
+  Comments.findAll()
     .then((dbCommentData) => res.json(dbCommentData))
     .catch((err) => {
       console.log(err);
@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/user-comments", (req, res) => {
-  Comment.findAll({
+  Comments.findAll({
     where: {
       user_id: req.session.user_id,
     },
@@ -29,7 +29,7 @@ router.get("/user-comments", (req, res) => {
 });
 
 router.post("/", withAuth, (req, res) => {
-  Comment.create({
+  Comments.create({
     comment_text: req.body.comment_text,
     user_id: req.session.user_id,
     tvshow_id: req.body.tvshow_id,
@@ -43,7 +43,7 @@ router.post("/", withAuth, (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
-  Comment.update(
+  Comments.update(
     {
       comment_text: req.body.comment_text,
       tvshow_rating: req.body.tvshow_rating,
@@ -68,7 +68,7 @@ router.put("/:id", (req, res) => {
 });
 
 router.delete("/:id", withAuth, (req, res) => {
-  Comment.destroy({
+  Comments.destroy({
     where: {
       id: req.params.id,
     },
