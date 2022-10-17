@@ -5,6 +5,7 @@ const region = "language=en-UK";
 
 // Getting the TV Show ID from url
 let tvshowID = window.location.href.split("/")[4];
+console.log(tvshowID)
 
 // Declaring elements from html file
 let title = document.getElementById("title");
@@ -54,7 +55,7 @@ event.preventDefault();
 const content = document.getElementById("content").value
 console.log("here?")
 if (content) {
-  await fetch(`/tvshow/${tvshowID}`, 
+  await fetch(`/api/comments/tvshow/${tvshowID}`, 
   {
     method: 'POST',
     body: JSON.stringify({

@@ -25,18 +25,34 @@ router.get("/:id", async (req, res) => {
       res.status(404).json({ message: "No comment found with this id!" });
       return;
     }
-
     res.status(200).json(commentData);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
+// Post comments about the tvshow
+router.post("/tvshow/:tvshowId", withAuth, async (req, res) => {
+  const user_id = req.session.user_id;
+  const tvshowId = req.params.tvshowId;
+  const content = req.body.content;
+  try {
+    const comments = await Comments.create({
+      tvshow_id: tvshowId,
+      user_comment: content,
+      user_id: user_id,
+    });
+    res.status(200).json(comments);
+  } catch (error) {
+    res.status(400).json({ error: error });
+  }
+});
+
 // Update comment based on the comment_id given in the request parameters.
 router.put("/:id", withAuth, async (req, res) => {
-  const newComment = req.body.content;
+  const newComment = req.body.newComment;
   try {
-    const commentData = await Comments.update(
+    const commentsData = await Comments.update(
       {
         user_comment: newComment,
       },
@@ -46,11 +62,10 @@ router.put("/:id", withAuth, async (req, res) => {
         },
       }
     );
-    if (!commentData) {
-      res.status(404).json({ message: "No comment found with this id!" });
+    if (!commentsData) {
+      res.status(404).json({ message: "No comments found with this id!" });
       return;
     }
-
     res.status(200).json("Comment updated!");
   } catch (err) {
     res.status(500).json(err);
@@ -65,12 +80,10 @@ router.delete("/:id", withAuth, async (req, res) => {
         id: req.params.id,
       },
     });
-
     if (!commentsData) {
       res.status(404).json({ message: "No comments found with this id!" });
       return;
     }
-
     res.status(200).json("Comment deleted!");
   } catch (err) {
     res.status(500).json(err);
