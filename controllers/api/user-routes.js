@@ -2,7 +2,6 @@ const router = require("express").Router();
 const { User, Comments } = require("../../models");
 require("dotenv").config();
 
-
 // get all users
 
 router.get("/", (req, res) => {
@@ -146,6 +145,5 @@ router.delete("/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
-
 
 module.exports = router;
