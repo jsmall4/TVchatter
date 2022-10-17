@@ -18,12 +18,7 @@ router.get("/dashboard", withAuth, (req, res) => {
     where: {
       user_id: req.session.user_id,
     },
-    attributes: [
-      "id",
-      "user_comment",
-      "tvshow_id",
-    ],
-   
+    attributes: ["id", "user_comment", "tvshow_id"],
   })
     .then((dbCommentData) => {
       const comments = dbCommentData.map((post) => post.get({ plain: true }));
@@ -35,7 +30,6 @@ router.get("/dashboard", withAuth, (req, res) => {
     });
 });
 
-
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/dashboard");
@@ -44,23 +38,22 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-
 router.get("/tvshow/:tvshowId", async (req, res) => {
   const tvshowId = req.params.tvshowId;
   const comments = await Comments.findAll({
-    where:{ 
-      tvshow_id: tvshowId
+    where: {
+      tvshow_id: tvshowId,
     },
     include: [
-      User, 
+      User,
       {
         model: User,
-        attributes: ["username"]
+        attributes: ["username"],
       },
-    ], 
+    ],
   });
   console.log(comments);
-  res.render("tvshows", {comments: comments || []});
+  res.render("tvshows", { comments: comments || [] });
 });
 
 router.post("/tvshow/:tvshowId", async (req, res) => {
@@ -75,10 +68,8 @@ router.post("/tvshow/:tvshowId", async (req, res) => {
     });
     res.status(200).json(comments);
   } catch (error) {
-    res.status(400).json({error: error});
-
+    res.status(400).json({ error: error });
   }
-  
 });
 
 router.post("/signup", async (req, res) => {

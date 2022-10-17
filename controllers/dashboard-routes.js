@@ -8,16 +8,11 @@ router.get("/", withAuth, (req, res) => {
     where: {
       user_id: req.session.user_id,
     },
-    attributes: [
-      "id",
-      "user_comment",
-      "tvshow_id",
-    ],
-   
+    attributes: ["id", "user_comment", "tvshow_id"],
   })
     .then((dbCommentData) => {
       const comments = dbCommentData.map((post) => post.get({ plain: true }));
-      console.log(comments)
+      console.log(comments);
       res.render("dashboard", { comments, loggedIn: true });
     })
     .catch((err) => {
@@ -28,12 +23,7 @@ router.get("/", withAuth, (req, res) => {
 
 router.get("/edit/:id", withAuth, (req, res) => {
   Comments.findByPk(req.params.id, {
-    attributes: [
-      "id",
-      "user_comment",
-      "tvshow_id",
-    ],
-    
+    attributes: ["id", "user_comment", "tvshow_id"],
   })
     .then((dbCommentData) => {
       if (dbCommentData) {

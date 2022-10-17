@@ -1,22 +1,25 @@
 .title {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: larger;
-    text-align: center;
-    background-color: #D7F3F6;
-    color: black;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: larger;
+  text-align: center;
+  background-color: #D7F3F6;
+  color: black;
 }
+
 .topnav {
-    background-color: #D7F3F6;;
-    overflow: hidden;
+  background-color: #D7F3F6;
+  ;
+  overflow: hidden;
 }
+
 .topnav a {
-    float: left;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 20px;
-} 
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+}
 
 
 .footer-section {
@@ -26,7 +29,7 @@
 #footer {
   font-family: sans-serif;
   margin-top: 50px;
- 
+
 }
 
 .card-footer {
@@ -35,15 +38,15 @@
 
 .footer-title {
   font-size: 16px;
-  margin-left:0;
+  margin-left: 0;
 }
 
 .footer-paragraph {
   font-size: 14px;
-  margin-left:0;
+  margin-left: 0;
 }
 
-.bottom-footer{
+.bottom-footer {
   background-color: #D7F3F6;
   font-size: 12px;
   text-align: center;
@@ -63,14 +66,15 @@
 }
 
 #logInBtn {
-  
-    margin-left: 30px;
-  
+
+  margin-left: 30px;
+
 }
+
 /* log out page css */
 
 .logOutBtn {
-  background-color:#D7F3F6;
+  background-color: #D7F3F6;
   font-size: 20px;
   border: none;
 }
@@ -105,7 +109,7 @@
   margin-left: 20px;
 }
 
-.postbutton{
+.postbutton {
   margin-left: 40px;
 }
 
@@ -122,219 +126,222 @@
   margin-left: 5;
 
 }
+
 /* external css: flickity.css */
 
 
 
 * {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  
-  body { font-family: sans-serif; }
-  
-  .gallery {
-    background: #EEE;
-  }
-  
-  .gallery-cell {
-    width: 300px;
-    height: 350px;
-    margin-right: 5px;
-    background: white;
-    counter-increment: gallery-cell;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-  
-  }
-  
-  .gallery-cell img {
-    display: block;
-    max-width: 100%;
-    max-height: 100%;
-    align-items: center;
-  
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.gallery {
+  background: #EEE;
+}
+
+.gallery-cell {
+  width: 300px;
+  height: 350px;
+  margin-right: 5px;
+  background: white;
+  counter-increment: gallery-cell;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
+}
+
+.gallery-cell img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  align-items: center;
+
+}
+
+.gallery-cell img:hover {
+  cursor: pointer;
+}
+
+.signup {
+  margin-left: 40px;
+  font-family: sans-serif;
+}
+
+.card {
+  margin-left: 40px;
+  font-family: sans-serif;
+
+}
+
+.sign-up {
+  padding: 12px;
+  margin: 20px;
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+/* TVShow Page CSS */
+
+html,
+body {
+  margin: 0;
+  background: white;
+  font-family: 'Montserrat', helvetica, arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.movie_card {
+  position: relative;
+  display: block;
+  width: 900px;
+  height: 400px;
+  margin: 40px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: all 0.4s;
+  box-shadow: 0px 0px 120px -25px rgba(0, 0, 0, 0.5);
+}
+
+.movie_card:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 0px 80px -25px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s;
+}
+
+
+.info_section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-blend-mode: multiply;
+  z-index: 2;
+  border-radius: 10px;
+}
+
+.movie_header {
+  position: relative;
+  padding: 25px;
+  height: 40%;
+}
+
+.movie_header h1 {
+  color: black;
+  font-weight: 400;
+  margin: 1px;
+
+}
+
+#duration {
+  color: #555;
+  font-weight: 400;
+}
+
+#date {
+  color: #555;
+  font-weight: 400;
+  margin: 5px;
+  font-size: small;
+}
+
+#tagline {
+  color: rgb(49, 49, 49);
+  font-weight: 600;
+  margin: 3px;
+}
+
+.minutes {
+  display: inline-block;
+  margin-top: 15px;
+  color: #555;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.type {
+  display: inline-block;
+  color: #959595;
+  margin-left: 10px;
+}
+
+#logo {
+  position: relative;
+  float: left;
+  margin-right: 20px;
+  height: 120px;
+  box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.5);
+}
+
+.movie_desc {
+  padding: 25px;
+  height: 50%;
+  color: #545454;
+}
+
+.blur_back {
+  position: absolute;
+  left: 330px;
+  top: px
+}
+
+#poster {
+  height: 400px;
+  object-fit: fill;
+}
+
+
+
+
+@media screen and (min-width: 768px) {
+  .movie_header {
+    width: 65%;
   }
 
-  .gallery-cell img:hover {
-    cursor: pointer;
+  .movie_desc {
+    width: 50%;
   }
 
-  .signup {
-    margin-left: 40px;
-    font-family: sans-serif;
+  .info_section {
+    background: linear-gradient(to right, #e5e6e6 50%, transparent 100%);
   }
 
-  .card {
-    margin-left: 40px;
-    font-family: sans-serif;
+  .blur_back {
+    width: 80%;
+    background-position: -100% 10% !important;
+  }
+}
 
+@media screen and (max-width: 768px) {
+  .movie_card {
+    width: 95%;
+    margin: 70px auto;
+    min-height: 350px;
+    height: auto;
   }
 
-  .sign-up {
-    padding: 12px;
-    margin: 20px;
-    font-family: sans-serif;
-    font-size: 16px;
-  }
-
-  /* TVShow Page CSS */
-  
-  html, body{
-    margin: 0;
-    background: white;
-    font-family: 'Montserrat', helvetica, arial, sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-  }
-  
-  .movie_card{
-    position: relative;
-    display: block;
-    width: 900px;
-    height: 400px;
-    margin: 40px auto; 
-    overflow: hidden;
-    border-radius: 10px;
-    transition: all 0.4s;
-    box-shadow: 0px 0px 120px -25px rgba(0,0,0, 0.5);
-  }
-
-  .movie_card:hover{
-    transform: scale(1.02);
-    box-shadow: 0px 0px 80px -25px rgba(0,0,0, 0.5);
-    transition: all 0.4s;
-  }
-
-
-  .info_section{
-    position: relative;
+  .blur_back {
     width: 100%;
-    height: 100%;
-	  background-blend-mode: multiply;
-    z-index: 2;
-    border-radius: 10px;
+    background-position: 50% 50% !important;
   }
 
-  .movie_header{
-    position: relative;
-    padding: 25px;
-    height: 40%;
+  .movie_header {
+    width: 100%;
+    margin-top: 85px;
   }
 
-  .movie_header h1 {
-    color: black;
-    font-weight: 400;
-    margin: 1px;
-    
+  .movie_desc {
+    width: 100%;
   }
 
- #duration {
-    color: #555;
-    font-weight: 400;
+  .info_section {
+    background: linear-gradient(to top, #e5e6e6 50%, transparent 100%);
+    display: inline-grid;
   }
-
-  #date {
-    color: #555;
-    font-weight: 400;
-    margin: 5px;
-    font-size: small;
-  }
-
-  #tagline {
-    color: rgb(49, 49, 49);
-    font-weight: 600;
-    margin: 3px;
-  }
-  .minutes{
-    display: inline-block;
-    margin-top: 15px;
-    color: #555;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid rgba(0,0,0,0.05);
-  }
-  .type{
-    display: inline-block;
-    color: #959595;
-    margin-left: 10px;
-  }
-
-  #logo{
-    position: relative;
-    float: left;
-    margin-right: 20px;
-    height: 120px;
-    box-shadow: 0 0 20px -10px rgba(0,0,0,0.5);
-  }
-
-  .movie_desc{
-    padding: 25px;
-    height: 50%;
-    color: #545454;
-  }
-
-  .blur_back{
-    position: absolute;
-    left: 330px;
-    top: px
-   
-
-  }
-    #poster {
-height: 400px;
-object-fit: fill ;    } 
-  
-
-
-
-  @media screen and (min-width: 768px) {
-    .movie_header{
-      width: 65%;
-    }
-    
-    .movie_desc{
-      width: 50%;
-    }
-    
-    .info_section{
-      background: linear-gradient(to right, #e5e6e6 50%, transparent 100%);
-    }
-    
-    .blur_back{
-      width: 80%;
-      background-position: -100% 10% !important;  
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    .movie_card{
-      width: 95%;
-      margin: 70px auto; 
-      min-height: 350px;
-      height: auto;
-    }
-    
-    .blur_back{
-      width: 100%;
-      background-position: 50% 50% !important;  
-    }
-    
-    .movie_header{
-      width: 100%;
-      margin-top: 85px;
-    }
-    
-    .movie_desc{
-      width: 100%;
-    }
-    
-    .info_section{
-      background: linear-gradient(to top, #e5e6e6 50%, transparent 100%);
-      display: inline-grid;
-    }
-  }
-  
-
-  
+}
