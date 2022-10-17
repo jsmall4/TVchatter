@@ -22,7 +22,6 @@ const GetShowInfo = () => {
   fetch(searchTV + tvshowID + "?" + api + "&" + region)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       title.innerHTML = data.name;
       date.innerHTML = "Last Air Date: " + data.last_air_date;
       desc.innerHTML = data.overview;
@@ -36,7 +35,7 @@ const GetShowInfo = () => {
 };
 
 
-// Search Function
+// Search function
 const searchTVshows = async () => {
 const searchbar = document.getElementById("prompt").value;
 await fetch("https://api.themoviedb.org/3/search/tv?api_key=a5236f2eef292a6c9f917d6db44e1323&language=en-US&page=1&query=" + searchbar + "&include_adult=false")
@@ -47,6 +46,35 @@ window.location.href = `/tvshow/${tvshowID}`;
 })
 .catch((err) => console.log("Unexpected error. Please try again"));
 };
+
+
+// Post Comment function
+const postComment = async function (event) {
+event.preventDefault();
+const content = document.getElementById("content").value
+console.log("here?")
+if (content) {
+  await fetch(`/tvshow/${tvshowID}`, 
+  {
+    method: 'POST',
+    body: JSON.stringify({
+      content
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+
+  document.location.reload();
+
+}
+}; 
+
+document
+  .getElementById('submitContent')
+  .addEventListener('click', postComment);
+
+
 
 
 // Initialising the function

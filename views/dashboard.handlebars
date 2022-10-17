@@ -1,10 +1,15 @@
-{{!-- {{#each posts as |post|}} --}}
+<button class="btn btn-primary signUpButton" id="logOut">Log Out</button>
+{{#each comments as |comment|}}
 <div class="card commentCard" style="width: 50rem;">
   <div class="card-body">
-    <h5 class="card-title post-titleCard">Post Title{{post.title}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Username{{post.title}}</h6>
-    <p class="card-text">Comment- i.e Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Reply</a>
+    <h5 class="card-title post-titleCard">{{comment.tvshow_id}}</h5>
+    {{!-- <h6 class="card-subtitle mb-2 text-muted"></h6> --}}
+    <p class="card-text">{{comment.user_comment}}</p>
+  <button class="btn btn-primary signUpButton" type="submit" id="editComment">Edit</button>
+  <button class="btn btn-primary signUpButton" type="submit" id="deleteComment">Delete</button>
   </div>
 </div>
- {{!-- {{/each}} --}}
+ {{/each}}
+ 
+<script src="/js/logout.js"></script>
+

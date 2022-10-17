@@ -28,37 +28,26 @@
   </div>
 </div>
 
-
-
   {{!--This shows previous posts/or comments? made by other users--}}
-  <div class="card commentCard" style="width: 50rem;">
     {{#each comments as |comment|}}
+      <div class="card commentCard" style="width: 50rem;">
   <div class="card-body">
-    <h5 class="card-title post-titleCard">{{comment.id}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Username</h6>
+    <h5 class="card-title post-titleCard">{{user.username}}</h5>
     <p class="card-text">{{comment.user_comment}}</p>
-    <a href="#" class="card-link">Reply</a>
   </div>
 </div>
   {{/each}}
 
-
-{{!--this is for a new post, title and main post--}}
-  <form>
- <div class="form-group postInputForm">
-    <label for="formGroupExampleInput">Post Title</label>
-    <input type="text" class="form-control postInputForm" id="formGroupExampleInput" placeholder="Example input">
+  <div class="card commentCard" style="width: 60rem;">
+  <div class="card-body">
+      <form>
+        <label for="formGroupExampleInput">Post Title</label>
+    <input type="text" class="form-control postInputForm" id="content" placeholder="Comments...">
   </div>
-  <div class="form-group postInputForm">
-    <label for="formGroupExampleInput2">Main Post</label>
-    <input type="text" class="form-control postInputForm" id="formGroupExampleInput2" placeholder="Another input">
-  </div>
-<div class="form-group row">
-    <div class="col-sm-9">
-      <button type="submit" class="btn btn-primary postbutton">POST</button>
+      <div class="col-sm-9">
+      <button class="btn btn-primary postbutton" id="submitContent">POST</button>
+    </form>
     </div>
-  </div>
-</form>
-  
-  
+</div>
+
 <script src="/js/tvshows-script.js"></script>

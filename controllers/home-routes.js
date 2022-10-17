@@ -1,10 +1,9 @@
 const router = require("express").Router();
-const { TVshow, User, Comments } = require("../models");
-// const withAuth = require("../utils/auth");
+const { User, Comments } = require("../models");
+const withAuth = require("../utils/auth");
 
 //renderhome page route.
 router.get("/", (req, res) => {
-  console.log("HIIIII");
   res.render("homepage");
 });
 
@@ -14,96 +13,72 @@ router.get("/signup", (req, res) => {
 });
 
 //render dashboard page
-router.get("/dashboard", (req, res) => {
-  res.render("dashboard");
+router.get("/dashboard", withAuth, (req, res) => {
+  Comments.findAll({
+    where: {
+      user_id: req.session.user_id,
+    },
+    attributes: [
+      "id",
+      "user_comment",
+      "tvshow_id",
+    ],
+   
+  })
+    .then((dbCommentData) => {
+      const comments = dbCommentData.map((post) => post.get({ plain: true }));
+      res.render("dashboard", { comments, loggedIn: true });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
-// router.get("/", (req, res) => {
-//   TVshow.findAll({
-//     attributes: ["poster"],
-//   })
-//     .then((tvreview_db) => {
-//       let movies = tvreview_db.map((tvshow) => tvshow.get({ plain: true }));
-//       const shuffled = tvshow.sort(() => 0.5 - Math.random());
-//       TVshow = shuffled.slice(0, 9);
-//       res.render("homepage", {
-//         tvshow,
-//         loggedIn: req.session.loggedIn,
-//       });
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
 
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/dashboard");
     return;
   }
-
   res.render("login");
 });
 
-// router.get("/tvshow/:id", (req, res) => {
-//   TVshow.findOne({
-//     where: {
-//       id: req.params.id,
-//     },
-//     include: [
-//       {
-//         model: User,
-//         attributes: ["username"],
-//       },
-//       {
-//         model: Comment,
-//         attributes: ["comment_text", "user_id", "tvshow_id", "createdAt"],
-//         include: [
-//           {
-//             model: User,
-//             attributes: ["username"],
-//           },
-//         ],
-//       },
-//     ],
-//   })
-//     .then((tvreview_db) => {
-//       if (!tvreview_db) {
-//         res.status(404).json({ message: "No show found with this id" });
-//         return;
-//       }
-
-//       const blog = tvreview_db.get({ plain: true });
-//       res.render("TVshow", { tvshow, loggedIn: req.session.loggedIn });
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
 
 router.get("/tvshow/:tvshowId", async (req, res) => {
   const tvshowId = req.params.tvshowId;
-  const comments = await Comments.findAll({ where: { tvshow_id: tvshowId } });
+  const comments = await Comments.findAll({
+    where:{ 
+      tvshow_id: tvshowId
+    },
+    include: [
+      User, 
+      {
+        model: User,
+        attributes: ["username"]
+      },
+    ], 
+  });
   console.log(comments);
-  res.render("tvshows", { comments: comments || [] });
+  res.render("tvshows", {comments: comments || []});
 });
 
 router.post("/tvshow/:tvshowId", async (req, res) => {
   const user_id = req.session.user_id;
   const tvshowId = req.params.tvshowId;
-  const content = req.body.content; //{content: "comment here"}
+  const content = req.body.content;
   try {
     const comments = await Comments.create({
-      tvshowId: tvshowId,
+      tvshow_id: tvshowId,
       user_comment: content,
       user_id: user_id,
     });
     res.status(200).json(comments);
   } catch (error) {
-    res.status(400).json({ error: error });
+    res.status(400).json({error: error});
+
   }
+  
 });
 
 router.post("/signup", async (req, res) => {
@@ -125,7 +100,6 @@ router.get("/login", (req, res) => {
     res.redirect("/");
     return;
   }
-
   res.render("login");
 });
 
