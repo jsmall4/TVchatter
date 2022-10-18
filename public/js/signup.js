@@ -3,7 +3,7 @@ const signUpToTVChatter = async (event) => {
   const username = document.getElementById("usernameSignup").value.trim();
   const email = document.getElementById("emailSignup").value.trim();
   const password = document.getElementById("passwordSignup").value.trim();
-  const response = await fetch(`/signup`, {
+  const response = await fetch(`/api/users/signup`, {
     method: "POST",
     body: JSON.stringify({
       username: username,
@@ -14,7 +14,7 @@ const signUpToTVChatter = async (event) => {
   });
   if (response.ok) {
     console.log("response is good!");
-    // document.location.replace("/homepage");
+    document.location.replace("/");
   } else {
     console.log(response);
     alert("Failed to sign up");
