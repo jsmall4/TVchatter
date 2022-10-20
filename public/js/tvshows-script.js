@@ -1,6 +1,6 @@
 const baseIMGurl = "https://image.tmdb.org/t/p/original";
 const api = "api_key=a5236f2eef292a6c9f917d6db44e1323";
-const searchTV = "https:api.themoviedb.org/3/tv/";
+const searchTV = "https://api.themoviedb.org/3/tv/";
 const region = "language=en-UK";
 
 // Getting the TV Show ID from url
