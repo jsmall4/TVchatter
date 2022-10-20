@@ -9,8 +9,7 @@ const GetTrending = () => {
   fetch(trendingTVsearch + "&" + api + "&" + region + onePage)
     .then((response) => response.json())
     .then((data) => {
-      for (i = 0; 1 < 9; i++) {
-        console.log(data.results[i]);
+      for (i = 0; i < 8; i++) {
         document.getElementById("img-c" + (i + 1)).src =
           baseIMGurl + data.results[i].poster_path;
         document
