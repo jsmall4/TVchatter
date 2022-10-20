@@ -98,7 +98,7 @@ When a user signs up with their email and password, they can then log in. When t
 
 # Link to deployed Heroku App
 
-- [Deployed Heroku App]()
+- [Deployed Heroku App](https://tvchatter.herokuapp.com/)
 
 ## How to contribute
 
