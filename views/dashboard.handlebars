@@ -1,42 +1,28 @@
 <button class="btn btn-primary signUpButton" id="logOut">Log Out</button>
 
-<div class="card commentCard" style="width: 50rem;">
-  <div class="card-body">
-    <h5 class="card-title post-titleCard" id="tvsID">Change or Delete
-      Comments...</h5>
-    <h4 class="card-text">{{comment.user_comment}}</h4>
-    <form>
-      <input
-        type="text"
-        class="form-control postInputForm"
-        id="commentID"
-        placeholder="Enter Comment ID..."
-      />
-      <input
-        type="text"
-        class="form-control postInputForm"
-        id="newComment"
-        placeholder="Enter New Comment..."
-      />
-      <button
-        class="btn btn-primary signUpButton"
-        id="editComment"
-      >Edit</button>
-      <button
-        class="btn btn-primary signUpButton"
-        id="deleteComment"
-      >Delete</button>
-    </form>
-  </div>
-</div>
-
 {{#each comments as |comment|}}
   <div class="card commentCard" style="width: 50rem;">
     <div class="card-body">
       <h6 class="card-title post-titleCard" id="tvsID" data-id="{{id}}">TVShow
         ID:{{comment.tvshow_id}}</h6>
       <h6 class="card-subtitle mb-2 text-muted">Comment ID: {{id}}</h6>
-      <h4 class="card-text">{{comment.user_comment}}</h4>
+      <h4 class="card-text">{{user_comment}}</h4>
+            <input
+        type="text"
+        class="form-control postInputForm"
+        class="newComment"
+        placeholder="{{user_comment}}"
+      />
+      <button
+        class="btn btn-primary signUpButton"
+        onclick="sendEditedComment(event)"
+        data-id="{{id}}"
+      >Edit</button>
+      <button
+        class="btn btn-primary signUpButton"
+         onclick="deleteComment(event)"
+         data-id="{{id}}"
+      >Delete</button>
     </div>
   </div>
 {{/each}}

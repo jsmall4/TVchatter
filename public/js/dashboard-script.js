@@ -16,8 +16,13 @@ document.getElementById("logOut").addEventListener("click", logout);
 // Edit Comment function
 const sendEditedComment = async function (event) {
   event.preventDefault();
-  const commentID = document.getElementById("commentID").value;
-  const newComment = document.getElementById("newComment").value;
+console.log(event.target)
+console.log(event.target.previousElementSibling)
+const commentID = event.target.dataset.id
+const newComment = event.target.previousElementSibling.value
+
+  // const commentID = document.getElementById("commentID").value;
+  // const newComment = document.getElementById("newComment").value;
 
   if (newComment) {
     await fetch(`/api/comments/${commentID}`, {
@@ -35,9 +40,9 @@ const sendEditedComment = async function (event) {
 };
 
 // Delete Comment function
-const deleteCommentReq = async function (event) {
+const deleteComment = async function (event) {
   event.preventDefault();
-  const commentID = document.getElementById("commentID").value;
+  const commentID = event.target.dataset.id
 
   if (commentID) {
     await fetch(`/api/comments/${commentID}`, {
@@ -52,10 +57,10 @@ const deleteCommentReq = async function (event) {
   }
 };
 
-document
-  .getElementById("editComment")
-  .addEventListener("click", sendEditedComment);
+// document
+//   .querySelectorAll(".btn")
+//   .addEventListener("click", sendEditedComment);
 
-document
-  .getElementById("deleteComment")
-  .addEventListener("click", deleteCommentReq);
+// document
+//   .getElementById("deleteComment")
+//   .addEventListener("click", deleteCommentReq);
